@@ -13,7 +13,7 @@ class User < ApplicationRecord
   end
   
   def under_stock_limit?
-  	user_stocks.count < 4
+  	user_stocks.count < 3
   end
 
   def stock_already_added?(ticker_symbol)
