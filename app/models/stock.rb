@@ -1,4 +1,6 @@
 class Stock < ApplicationRecord
+	has_many :user_stocks
+	has_many :users, through: :user_stocks
 
 	def self.find_by_ticker(ticker_symbol)
 		where(ticker: ticker_symbol).first
@@ -23,10 +25,4 @@ class Stock < ApplicationRecord
 end
 
 
-# StockRecord.create({ ticker: 'GOOG', name: 'Google', open: 120, close: 122 })
-# StockRecord.create({ ticker: 'TSlA', name: 'Tesla', open: 100, close: 125 })
-# StockRecord.create({ ticker: 'FB', name: 'Facebook', open: 80, close: 85 })
-# StockRecord.create({ ticker: 'HBC', name: 'Hardson Bay', open: 45, close: 44 })
-# StockRecord.create({ ticker: 'CTC', name: 'Cognizant', open: 50, close: 45 })
-# StockRecord.create({ ticker: 'TWTR', name: 'Twitter', open: 60, close: 65 })
-# StockRecord.create({ ticker: 'WP', name: 'Wipro', open: 35, close: 50 })
+
