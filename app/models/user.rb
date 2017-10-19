@@ -22,5 +22,10 @@ class User < ApplicationRecord
   	user_stocks.where(stock_id: stock).exists?
   end
 
+  def full_name
+    "#{first_name}#{last_name}".strip if ( first_name || last_name )
+    "Annonymous"
+  end
+
 
 end
